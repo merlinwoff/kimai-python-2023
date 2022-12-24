@@ -35,7 +35,8 @@ class ActivityEditForm(object):
         'comment': 'str',
         'project': 'int',
         'color': 'str',
-        'visible': 'bool'
+        'visible': 'bool',
+        'billable': 'bool'
     }
 
     attribute_map = {
@@ -43,10 +44,11 @@ class ActivityEditForm(object):
         'comment': 'comment',
         'project': 'project',
         'color': 'color',
-        'visible': 'visible'
+        'visible': 'visible',
+        'billable': 'billable'
     }
 
-    def __init__(self, name=None, comment=None, project=None, color=None, visible=None):  # noqa: E501
+    def __init__(self, name=None, comment=None, project=None, color=None, visible=None, billable=None):  # noqa: E501
         """ActivityEditForm - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
@@ -54,6 +56,7 @@ class ActivityEditForm(object):
         self._project = None
         self._color = None
         self._visible = None
+        self._billable = None
         self.discriminator = None
 
         self.name = name
@@ -64,6 +67,8 @@ class ActivityEditForm(object):
         self.color = color
         if visible is not None:
             self.visible = visible
+        if billable is not None:
+            self.billable = billable
 
     @property
     def name(self):
@@ -178,6 +183,27 @@ class ActivityEditForm(object):
 
         self._visible = visible
 
+    @property
+    def billable(self):
+        """Gets the billable of this ActivityEditForm.  # noqa: E501
+
+
+        :return: The billable of this ActivityEditForm.  # noqa: E501
+        :rtype: bool
+        """
+        return self._billable
+
+    @billable.setter
+    def billable(self, billable):
+        """Sets the billable of this ActivityEditForm.
+
+
+        :param billable: The billable of this ActivityEditForm.  # noqa: E501
+        :type: bool
+        """
+
+        self._billable = billable
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -223,5 +249,3 @@ class ActivityEditForm(object):
     def __ne__(self, other):
         """Returns true if both objects are not equal"""
         return not self == other
-
-    
