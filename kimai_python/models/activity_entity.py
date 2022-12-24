@@ -37,6 +37,7 @@ class ActivityEntity(object):
         'name': 'str',
         'comment': 'str',
         'visible': 'bool',
+        'billable': 'bool',
         'budget': 'float',
         'time_budget': 'int',
         'meta_fields': 'list[ActivityMeta]',
@@ -50,13 +51,14 @@ class ActivityEntity(object):
         'name': 'name',
         'comment': 'comment',
         'visible': 'visible',
+        'billable': 'visible',
         'budget': 'budget',
         'time_budget': 'timeBudget',
         'meta_fields': 'metaFields',
         'color': 'color'
     }
 
-    def __init__(self, parent_title=None, project=None, id=None, name=None, comment=None, visible=None, budget=None, time_budget=None, meta_fields=None, color=None):  # noqa: E501
+    def __init__(self, parent_title=None, project=None, id=None, name=None, comment=None, visible=None, billable=None, budget=None, time_budget=None, meta_fields=None, color=None):  # noqa: E501
         """ActivityEntity - a model defined in Swagger"""  # noqa: E501
 
         self._parent_title = None
@@ -81,6 +83,7 @@ class ActivityEntity(object):
         if comment is not None:
             self.comment = comment
         self.visible = visible
+        self.billable = billable
         self.budget = budget
         self.time_budget = time_budget
         if meta_fields is not None:
@@ -221,6 +224,29 @@ class ActivityEntity(object):
             raise ValueError("Invalid value for `visible`, must not be `None`")  # noqa: E501
 
         self._visible = visible
+
+    @property
+    def billable(self):
+        """Gets the billable of this ActivityEntity.  # noqa: E501
+
+
+        :return: The billable of this ActivityEntity.  # noqa: E501
+        :rtype: bool
+        """
+        return self._billable
+
+    @billable.setter
+    def billable(self, billable):
+        """Sets the billable of this ActivityEntity.
+
+
+        :param billable: The billable of this ActivityEntity.  # noqa: E501
+        :type: bool
+        """
+        if billable is None:
+            raise ValueError("Invalid value for `visible`, must not be `None`")  # noqa: E501
+
+        self._billable = billable
 
     @property
     def budget(self):
